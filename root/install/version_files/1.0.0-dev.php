@@ -38,5 +38,18 @@ $versions = array_merge($versions, array(
 		'table_index_add' => array(
 			array(FORUMS_TABLE, 'r2t_report_forum', 'r2t_report_forum'),
 		),
+
+		// Create all the configuration entries
+		'config_add' => array(
+			/**
+			 * @todo Populate with some usefull data
+			 */
+			array('r2t_dest_forum', 0, false),
+			array('r2t_pm_dest_forum', 0, false),
+			array('r2t_pm_title', '', false),
+			array('r2t_post_title', '', false),
+			array('r2t_pm_template', '', false),
+			array('r2t_post_template', '', false),
+		),
 	),
 ));
