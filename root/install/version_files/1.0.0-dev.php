@@ -30,6 +30,13 @@ if (!is_array($versions))
 // function - http://php.net/manual/en/function.version-compare.php
 $versions = array_merge($versions, array(
 	'1.0.0-dev'	=> array(
+		// Alter the forums table
+		'table_column_add' => array(
+			array(FORUMS_TABLE, 'r2t_report_forum', array('UINT', '0'))
+		),
 
+		'table_index_add' => array(
+			array(FORUMS_TABLE, 'r2t_report_forum', 'r2t_report_forum'),
+		),
 	),
 ));
