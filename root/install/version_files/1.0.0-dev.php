@@ -50,6 +50,15 @@ $versions = array_merge($versions, array(
 			array('r2t_post_title', '', false),
 			array('r2t_pm_template', '', false),
 			array('r2t_post_template', '', false),
+
+			array('r2t_pm_template_bbcode', true, ''),
+			array('r2t_pm_template_smilies', true, ''),
+			array('r2t_pm_template_urls', true, ''),
+			array('r2t_pm_template_sig', true, ''),
+			array('r2t_post_template_bbcode', true, ''),
+			array('r2t_post_template_smilies', true, ''),
+			array('r2t_post_template_urls', true, ''),
+			array('r2t_post_template_sig', true, ''),
 		),
 	),
 ));
