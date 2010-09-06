@@ -36,7 +36,12 @@ abstract class hook_report2topic
 	static public function init(phpbb_hook $phpbb_hook)
 	{
 		$phpbb_hook->register('phpbb_user_session_handler', 'hook_report2topic::setup');
-		$phpbb_hook->register(array('template', 'display'), 'hook_report2topic::overrule_report');
+
+		// All other hook shouldn't be used when in the installer
+		if (!defined('UMIL_AUTO'))
+		{
+			$phpbb_hook->register(array('template', 'display'), 'hook_report2topic::overrule_report');
+		}
 	}
 
 	/**
