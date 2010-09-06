@@ -62,7 +62,7 @@ $version_files = filelist($phpbb_root_path . 'install/', 'version_files/', 'php'
 
 foreach ($version_files['version_files/'] as $version_file)
 {
-	require("{$phpbb_root_path}install/version_files/{$version_file}.{$phpEx}");
+	require("{$phpbb_root_path}install/version_files/{$version_file}");
 }
 
 // Include the UMIF Auto file and everything else will be handled automatically.
