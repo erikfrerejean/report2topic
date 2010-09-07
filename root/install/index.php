@@ -18,7 +18,6 @@ define('IN_INSTALL', true);
 $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './../';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
-include($phpbb_root_path . 'includes/functions_admin.' . $phpEx);
 
 // Make sure that the hook file is loaded.
 if (!class_exists('hook_report2topic'))
@@ -58,11 +57,9 @@ $language_file = 'mods/report2topic++/report2topic_install';
 // Construct the versions data. Each new version has its own versions data
 // file in install/data/
 $versions = array();
-$version_files = filelist($phpbb_root_path . 'install/', 'version_files/', 'php');
-
-foreach ($version_files['version_files/'] as $version_file)
+foreach (glob(PHPBB_ROOT_PATH . 'install/version_files/*' . PHP_EXT) as $version_file)
 {
-	require("{$phpbb_root_path}install/version_files/{$version_file}");
+	require $version_file;
 }
 
 // Include the UMIF Auto file and everything else will be handled automatically.
