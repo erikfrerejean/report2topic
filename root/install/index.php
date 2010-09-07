@@ -59,6 +59,11 @@ $language_file = 'mods/report2topic++/report2topic_install';
 $versions = array();
 foreach (glob(PHPBB_ROOT_PATH . 'install/version_files/*' . PHP_EXT) as $version_file)
 {
+	// Validate the file name
+	if (preg_match('#^' . PHPBB_ROOT_PATH . 'install/version_files/([0-9\.]+)((-dev|-b|-rc){1}([0-9]?)){0,1}\.' . PHP_EXT . '$#', $version_file) == 0)
+	{
+		continue;
+	}
 	require $version_file;
 }
 
