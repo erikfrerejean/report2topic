@@ -16,7 +16,6 @@ define('IN_PHPBB', true);
 $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
-include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
 
 // Start session management
 $user->session_begin();
@@ -220,6 +219,10 @@ if ($submit && $reason_id)
 }
 
 // Generate the reasons
+if (!function_exists('display_reasons'))
+{
+	include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
+}
 display_reasons($reason_id);
 
 $page_title = ($pm_id) ? $user->lang['REPORT_MESSAGE'] : $user->lang['REPORT_POST'];
