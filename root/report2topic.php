@@ -41,12 +41,12 @@ if (!$post_id && (!$pm_id || !$config['allow_pm_report']))
 
 if ($post_id)
 {
-	$redirect_url = append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f=$forum_id&amp;p=$post_id") . "#p$post_id";
+	$redirect_url = append_sid(PHPBB_ROOT_PATH . 'viewtopic.' . PHP_EXT, array('f' => $forum_id, 'p' => $post_id, '#' => "p{$post_id}"));
 	$pm_id = 0;
 }
 else
 {
-	$redirect_url = append_sid("{$phpbb_root_path}ucp.$phpEx", "i=pm&mode=view&p=$pm_id");
+	$redirect_url = append_sid(PHPBB_ROOT_PATH . 'ucp.' . PHP_EXT, array('i' => 'pm', 'mode' => 'view', 'p' => $pm_id));
 	$post_id = 0;
 	$forum_id = 0;
 }
@@ -221,7 +221,7 @@ if ($submit && $reason_id)
 // Generate the reasons
 if (!function_exists('display_reasons'))
 {
-	include($phpbb_root_path . 'includes/functions_display.' . $phpEx);
+	require PHPBB_ROOT_PATH . 'includes/functions_display.' . PHP_EXT;
 }
 display_reasons($reason_id);
 
