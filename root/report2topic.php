@@ -227,7 +227,7 @@ display_reasons($reason_id);
 
 $page_title = ($pm_id) ? $r2t_core->user->lang('REPORT_MESSAGE') : $r2t_core->user->lang('REPORT_POST');
 
-$template->assign_vars(array(
+$r2t_core->template->assign_vars(array(
 	'S_REPORT_POST'		=> ($pm_id) ? false : true,
 	'REPORT_TEXT'		=> $report_text,
 	'S_REPORT_ACTION'	=> append_sid(PHPBB_ROOT_PATH . 'report2topic.' . PHP_EXT, array('f' => $forum_id, 'p' => $post_id, 'pm' => $pm_id)),
