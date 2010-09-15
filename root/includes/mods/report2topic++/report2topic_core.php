@@ -311,18 +311,18 @@ class report2topic_core
 		$report_time	= $this->user->format_date($report['report_time']);
 		$title			= (isset($report['post_id'])) ? censor_text($report['post_subject']) : censor_text($report['message_subject']);
 
-		$report_link_params = array(
-			'i'		=> (isset($report['post_id']))  ? 'reports' : 'pm_reports',
-			'mode'	=> (isset($report['post_id']))  ? 'report_details' : 'pm_report_details',
-			'r'		=> $report['report_id'],
-		);
-		$report_link = append_sid(generate_board_url() . '/mcp.' . PHP_EXT, $report_link_params);
+//		$report_link_params = array(
+//			'i'		=> (isset($report['post_id']))  ? 'reports' : 'pm_reports',
+//			'mode'	=> (isset($report['post_id']))  ? 'report_details' : 'pm_report_details',
+//			'r'		=> $report['report_id'],
+//		);
+//		$report_link = append_sid(generate_board_url() . '/mcp.' . PHP_EXT, $report_link_params);
 
 		// Fill the array
 		$tokens = array(
 			'REPORTER'		=> $reporter,
 			'REPORTER_FULL'	=> $reporter_full,
-			'REPORT_LINK'	=> $report_link,
+//			'REPORT_LINK'	=> $report_link,
 			'REPORT_REASON'	=> $report_reason,
 			'REPORT_TEXT'	=> $report_text,
 			'REPORT_TIME'	=> $report_time,
