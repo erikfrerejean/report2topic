@@ -170,4 +170,79 @@ class acp_report2topic
 			));
 		}
 	}
+
+	/**
+	 * Quick resolution ACP page
+	 * @return void
+	 */
+	private function _quick_resolution()
+	{
+		// Setup the page
+		$this->tpl_name		= 'mods/report2topic++/report2topic++';
+		$this->page_title	= 'ACP_REPORT2TOPIC_QUICKRESOLUTION';
+		$this->form_key		= 'report2topic++_quick_resolution';
+
+		// Build the configuration array for this page
+		// Only supports radio buttons and if required for a setting an additional text box
+		$_r2t_config = array(
+			array(
+				'name'				=> 'r2t_close_report',
+				'selected_yes'		=> (isset($this->core->config['r2t_close_report'])) ? $this->core->config['r2t_close_report'] : false,
+			),
+			array(
+				'name'				=> 'r2t_view_report',
+				'selected_yes'		=> (isset($this->core->config['r2t_view_report'])) ? $this->core->config['r2t_view_report'] : false,
+			),
+			array(
+				'name'				=> 'r2t_delete_reported_post',
+				'selected_yes'		=> (isset($this->core->config['r2t_delete_reported_post'])) ? $this->core->config['r2t_delete_reported_post'] : false,
+			),
+			array(
+				'name'				=> 'r2t_delete_reported_topic',
+				'selected_yes'		=> (isset($this->core->config['r2t_delete_reported_topic'])) ? $this->core->config['r2t_delete_reported_topic'] : false,
+			),
+			array(
+				'name'				=> 'r2t_move_topic',
+				'selected_yes'		=> (isset($this->core->config['r2t_move_topic'])) ? $this->core->config['r2t_move_topic'] : false,
+				'text_box_name'		=> 'r2t_move_topic_dest',
+				'text_box_value'	=> (isset($this->core->config['r2t_move_topic_dest'])) ? $this->core->config['r2t_move_topic_dest'] : false,
+			),
+			array(
+				'name'				=> 'r2t_split_move_post',
+				'selected_yes'		=> (isset($this->core->config['r2t_split_move_post'])) ? $this->core->config['r2t_split_move_post'] : false,
+				'text_box_name'		=> 'r2t_move_post_dest',
+				'text_box_value'	=> (isset($this->core->config['r2t_move_post_dest'])) ? $this->core->config['r2t_move_post_dest'] : false,
+			),
+		);
+
+		// Build the boxes
+		foreach ($_r2t_config as $config_row)
+		{
+			// radio buttons
+			$_tpl_row = array(
+				'CONFIG_NAME'			=> $config_row['name'],
+				'L_CONFIG_NAME'			=> $this->core->user->lang('R2T_CONFIG_' . strtoupper($config_row['name'])),
+				'L_CONFIG_NAME_EXPLAIN'	=> (isset($this->core->user->lang['R2T_CONFIG_' . strtoupper($config_row['name']) . '_EXPLAIN'])) ? $this->core->user->lang['R2T_CONFIG_' . strtoupper($config_row['name']) . '_EXPLAIN'] : '',
+				'S_YES_CHECKED'			=> $config_row['selected_yes'],
+			);
+
+			// Text box?
+			if (isset($config_row['text_box_name']))
+			{
+				$_tpl_row = array_merge($_tpl_row, array(
+					'CONFIG_TEXT_CONFIG_NAME'		=> $config_row['text_box_name'],
+					'L_CONFIG_ADD_SETTING_VALUE'	=> $config_row['text_box_value'],
+				));
+			}
+
+			$this->core->template->assign_block_vars('r2t_qr_settings', $_tpl_row);
+		}
+
+		// Output the page
+		$this->core->template->assign_vars(array(
+			'U_ACTION'	=> $this->u_action,
+		));
+
+
+	}
 }

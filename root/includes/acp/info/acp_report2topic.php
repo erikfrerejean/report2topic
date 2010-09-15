@@ -29,7 +29,8 @@ class acp_report2topic_info
 			'title'		=> 'ACP_REPORT2TOPIC',
 			'version'	=> '1.0.0',
 			'modes'		=> array(
-				'config'	=> array('title' => 'ACP_REPORT2TOPIC_CONFIG', 'auth' => '', 'cat' => array('ACP_REPORT2TOPIC')),
+				'config'			=> array('title' => 'ACP_REPORT2TOPIC_CONFIG', 'auth' => '', 'cat' => array('ACP_REPORT2TOPIC')),
+				'quick_resolution'	=> array('title' => 'ACP_REPORT2TOPIC_QUICKRESOLUTION', 'auth' => '', 'cat' => array('ACP_REPORT2TOPIC')),
 			),
 		);
 	}

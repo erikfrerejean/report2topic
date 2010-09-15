@@ -93,6 +93,25 @@
 	</tbody>
 	</table>
 </form>
+<!-- ELSEIF ON_R2T_ACP_PAGE == '_quick_resolution' -->
+<a name="maincontent"></a>
+<h1>{L_ACP_REPORT2TOPIC_QUICKRESOLUTION}</h1>
+<p>{L_ACP_REPORT2TOPIC_QUICKRESOLUTION_EXPLAIN}</p>
+
+<form id="acp_report2topic" method="post" action="{U_ACTION}">
+    <fieldset>
+	<legend>{L_ACP_REPORT2TOPIC_QUICKRESOLUTION}</legend>
+
+	<!-- BEGIN r2t_qr_settings -->
+	<dl>
+	    <dt><label for="{r2t_qr_settings.CONFIG_NAME}">{r2t_qr_settings.L_CONFIG_NAME}:</label><!-- IF r2t_qr_settings.L_CONFIG_NAME_EXPLAIN --><br /><span>{r2t_qr_settings.L_CONFIG_NAME_EXPLAIN }</span><!-- ENDIF --></dt>
+	    <dd><label><input type="radio" name="r2t_config[{r2t_qr_settings.CONFIG_NAME}]" value="1" class="radio"<!-- IF r2t_qr_settings.S_YES_CHECKED --> checked="checked"<!-- ENDIF --> /> {L_YES}</label><label><input type="radio" name="r2t_config[{r2t_qr_settings.CONFIG_NAME}]" value="0" class="radio"<!-- IF not r2t_qr_settings.S_YES_CHECKED --> checked="checked"<!-- ENDIF --> /> {L_NO}</label>
+		<!-- IF r2t_qr_settings.CONFIG_TEXT_CONFIG_NAME --><br /><input id="{r2t_qr_settings.CONFIG_NAME}" type="text" name="r2t_config[{r2t_qr_settings.CONFIG_TEXT_CONFIG_NAME}]" maxlength="255" size="40" value="{r2t_qr_settings.L_CONFIG_ADD_SETTING_VALUE}" /><!-- ENDIF -->
+	    </dd>
+	</dl>
+	<!-- END r2t_qr_settings -->
+    </fieldset>
+</form>
 <!-- ELSE -->
     <!-- IF S_CAN_SET_R2T_DEST_FORUM -->
 	<dl>

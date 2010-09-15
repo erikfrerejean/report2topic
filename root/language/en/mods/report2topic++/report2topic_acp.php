@@ -44,6 +44,8 @@ $lang = array_merge($lang, array(
 	'ACP_REPORT2TOPIC_CONFIG_EXPLAIN'	=> 'The main report2topic++ configuration.',
 	'ACP_REPORT2TOPIC_CONFIG_SUCCESS'	=> 'The main configuration has been updated successfully!',
 	'ACP_REPORT2TOPIC_PM_CONFIG'		=> 'PM report configuration',
+	'ACP_REPORT2TOPIC_QUICKRESOLUTION'	=> 'report2topic++ quick resolution',
+	'ACP_REPORT2TOPIC_QUICKRESOLUTION_EXPLAIN'	=> 'Edit the report2topic++ quick resolution settings.<br />The “Quick Resolution” will inject a set of links in the report posts and notifications which point directly to different report resolutions. On this page you can define which Quick Resolutions will be available',
 
 	'FORUM_NOT_EXISTS'				=> 'The requested forum (%1$s) doesn\'t exist',
 
