@@ -71,3 +71,19 @@ $lang = array_merge($lang, array(
 	'TOKENS_EXPLAIN'	=> 'Tokens are placeholders for various pieces of information that can be displayed in the report post.<br /><br /><strong>Please note that only tokens listed below can be used in the report post.</strong>',
 	'TOKEN_DEFINITION'	=> 'What will it be replaced with?',
 ));
+
+// Language entries for config values
+$lang = array_merge($lang, array(
+	'R2T_CONFIG_R2T_CLOSE_REPORT'					=> 'Close the report',
+	'R2T_CONFIG_R2T_CLOSE_REPORT_EXPLAIN'			=> 'Add a link that closes the report.',
+	'R2T_CONFIG_R2T_VIEW_REPORT'					=> 'View the report',
+	'R2T_CONFIG_R2T_VIEW_REPORT_EXPLAIN'			=> 'Add a backlink to the report in the MCP.',
+	'R2T_CONFIG_R2T_DELETE_REPORTED_POST'			=> 'Delete reported post',
+	'R2T_CONFIG_R2T_DELETE_REPORTED_POST_EXPLAIN'	=> 'Delete the reported post and close the report.',
+	'R2T_CONFIG_R2T_DELETE_REPORTED_TOPIC'			=> 'Delete reported topic',
+	'R2T_CONFIG_R2T_DELETE_REPORTED_TOPIC_EXPLAIN'	=> 'Delete the reported topic and close the report.',
+	'R2T_CONFIG_R2T_MOVE_TOPIC'						=> 'Move reported topic',
+	'R2T_CONFIG_R2T_MOVE_TOPIC_EXPLAIN'				=> 'Move the reported topic to the selected forum.',
+	'R2T_CONFIG_R2T_SPLIT_MOVE_POST'				=> 'Move reported post',
+	'R2T_CONFIG_R2T_SPLIT_MOVE_POST_EXPLAIN'		=> 'Split the reported post from the original topic and move the post to the selected forum.',
+));

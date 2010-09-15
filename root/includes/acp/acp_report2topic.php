@@ -222,7 +222,7 @@ class acp_report2topic
 			$_tpl_row = array(
 				'CONFIG_NAME'			=> $config_row['name'],
 				'L_CONFIG_NAME'			=> $this->core->user->lang('R2T_CONFIG_' . strtoupper($config_row['name'])),
-				'L_CONFIG_NAME_EXPLAIN'	=> (isset($this->core->user->lang['R2T_CONFIG_' . strtoupper($config_row['name']) . '_EXPLAIN'])) ? $this->core->user->lang['R2T_CONFIG_' . strtoupper($config_row['name']) . '_EXPLAIN'] : '',
+				'L_CONFIG_NAME_EXPLAIN'	=> (!empty($this->core->user->lang['R2T_CONFIG_' . strtoupper($config_row['name']) . '_EXPLAIN'])) ? $this->core->user->lang['R2T_CONFIG_' . strtoupper($config_row['name']) . '_EXPLAIN'] : '',
 				'S_YES_CHECKED'			=> $config_row['selected_yes'],
 			);
 
