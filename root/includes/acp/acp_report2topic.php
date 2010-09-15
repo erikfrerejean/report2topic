@@ -183,7 +183,7 @@ class acp_report2topic
 		$this->form_key		= 'report2topic++_quick_resolution';
 
 		// Build the configuration array for this page
-		// Only supports radio buttons and if required for a setting an additional text box
+		// Only supports radio buttons and if required a forum select box
 		$_r2t_config = array(
 			array(
 				'name'				=> 'r2t_close_report',
@@ -204,14 +204,14 @@ class acp_report2topic
 			array(
 				'name'				=> 'r2t_move_topic',
 				'selected_yes'		=> (isset($this->core->config['r2t_move_topic'])) ? $this->core->config['r2t_move_topic'] : false,
-				'text_box_name'		=> 'r2t_move_topic_dest',
-				'text_box_value'	=> (isset($this->core->config['r2t_move_topic_dest'])) ? $this->core->config['r2t_move_topic_dest'] : false,
+				'forum_select_name'	=> 'r2t_move_topic_dest',
+				'forum_selected'	=> (isset($this->core->config['r2t_move_topic_dest'])) ? $this->core->config['r2t_move_topic_dest'] : false,
 			),
 			array(
 				'name'				=> 'r2t_split_move_post',
 				'selected_yes'		=> (isset($this->core->config['r2t_split_move_post'])) ? $this->core->config['r2t_split_move_post'] : false,
-				'text_box_name'		=> 'r2t_move_post_dest',
-				'text_box_value'	=> (isset($this->core->config['r2t_move_post_dest'])) ? $this->core->config['r2t_move_post_dest'] : false,
+				'forum_select_name'	=> 'r2t_move_post_dest',
+				'forum_selected'	=> (isset($this->core->config['r2t_move_post_dest'])) ? $this->core->config['r2t_move_post_dest'] : false,
 			),
 		);
 
@@ -226,12 +226,12 @@ class acp_report2topic
 				'S_YES_CHECKED'			=> $config_row['selected_yes'],
 			);
 
-			// Text box?
-			if (isset($config_row['text_box_name']))
+			// Forum select?
+			if (isset($config_row['forum_select_name']))
 			{
 				$_tpl_row = array_merge($_tpl_row, array(
-					'CONFIG_TEXT_CONFIG_NAME'		=> $config_row['text_box_name'],
-					'L_CONFIG_ADD_SETTING_VALUE'	=> $config_row['text_box_value'],
+					'CONFIG_FORUM_SELECT_NAME'		=> $config_row['forum_select_name'],
+					'S_CONFIG_FORUM_OPTIONS'		=> make_forum_select($config_row['forum_selected']),
 				));
 			}
 
